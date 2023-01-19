@@ -1,5 +1,5 @@
 # DIGIUS SDK (ANDROID)
-![android](https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white) ![version](https://img.shields.io/badge/version-v1.1.0-blue)
+![android](https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white) ![version](https://img.shields.io/badge/version-v1.1.1-blue)
 
 
 Digius SDK is a one-shot solution to securely fetch documents from DigiLocker. It helps to eliminate use of physical documents and enables sharing of e-documents which is stored in DigiLocker account.
