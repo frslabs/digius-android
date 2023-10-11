@@ -1,5 +1,5 @@
 # DIGIUS SDK (ANDROID)
-![android](https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white) ![version](https://img.shields.io/badge/version-v1.1.1-blue)
+![android](https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white) ![version](https://img.shields.io/badge/version-v1.2.0-blue)
 
 
 Digius SDK is a one-shot solution to securely fetch documents from DigiLocker. It helps to eliminate use of physical documents and enables sharing of e-documents which is stored in DigiLocker account.
@@ -111,7 +111,7 @@ dependencies {
     /*
      * Digius Billing Dependency (Include only if transaction based billing is enabled)
      */
-    implementation'com.frslabs.android.sdk:torus:1.0.1'
+    implementation'com.frslabs.android.sdk:torus:1.2.1'
 }
 ```
 
@@ -145,6 +145,9 @@ Given below is the fully configured Digius SDK invokation.
             val data = digiusResult.getAadhaarData()
             Toast.makeText(this@MainActivity, data.toString(), Toast.LENGTH_SHORT).show()
           }
+          if (digiusResult.getDocumentType() == DigiusDocumentType.PAN_CARD) {
+             val data = digiusResult.getPanData()  //FOR PAN
+            }
         }
   
         override fun onFailure(code: Int, message: String) {
@@ -165,6 +168,7 @@ You can use the following methods in the `DigiusResult` instance to parse the su
 | ------------------------ | ----------------------------- | ---------------------------------------------------------------- |
 | DigiusDocumentType(Enum) | *getDocumentType()*           | Returns selected document type                                   |
 | AadhaarResult            | *getAadhaarData()*            | Returns aadhaar data if document type is aadhaar                 |
+| PanResult                | *getPanData()*                | Returns PAN data if document type is PAN                         |
 
 `getAadhaarData()` returns `AadhaarResult` instance with following methods:
 
@@ -187,11 +191,20 @@ You can use the following methods in the `DigiusResult` instance to parse the su
 | String      | *getAadhaarLastFourDigits()*         | Returns last four digits of aadhaar     |
 | String      | *getAadhaarIssuedDate()*             | Returns aadhaar issued date and time     |
 
+`getPanData()` returns `PanResult` instance with following methods:
+| Return Type | Method                               | Usage                            |
+| ----------- | ------------------------------------ | ---------------------------------|
+| String      | *getNumber()*                        | Returns document number          |
+| String      | *getName()*                          | Returns document's name          |
+| String      | *getDateOfBirth()*                   | Returns date of birth            |
+| String      | *getGender()*                        | Returns gender                   |
+
 Available document types are
 
   | Value                       | Document            |
   | --------------------------- | ------------------- |
   | DigiusDocumentType.AADHAAR  | Aadhaar Card        |
+  | DigiusDocumentType.PAN      | PAN Card            |
 
 
 ## Digius Error Codes
