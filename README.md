@@ -46,26 +46,18 @@ allprojects {
     repositories {
 
         //Maven credentials for the Digius SDK
-        maven {
-            url "https://digius-sdk-android.repo.frslabs.space/"
-            credentials {
-                   username '<YOUR_USERNAME>'
-                   password '<YOUR_PASSOWRD>'
-            }
-        }
-
         /*
-        *Include below code only for transaction based billing
+        *Include `torus-sdk` only for transaction based billing
         */
-        //Maven credentials for the Torus SDK
-        maven {
-            url "https://torus-android.repo.frslabs.space/"
-            credentials {
-                username '<YOUR_USERNAME>'
-                password '<YOUR_PASSOWRD>'
+        ['torus-android' , 'digius-sdk-android'].each { value->
+            maven {
+                url "https://www.repo2.frslabs.space/repository/${value}/"
+                credentials {
+                    username '<YOUR_USERNAME>' 
+                    password '<YOUR_PASSOWRD>' 
+                }
             }
         }
-
     }
 }
 ```
