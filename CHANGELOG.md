@@ -4,7 +4,7 @@
 - General improvements
 
 # **v1.2.0** - *05-10-2023*
-- Support digilocker PAN, Driving license
+- Support digilocker PAN
 
 # **v1.1.1** - *19-01-2023*
 - Bug fixes
