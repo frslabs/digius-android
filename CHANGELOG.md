@@ -1,5 +1,9 @@
 # Changelog
 
+# **v1.2.2** - *06-08-2025*
+- General Improvements
+- Bug fixes
+
 # **v1.2.1** - *14-03-2024*
 - General improvements
 
